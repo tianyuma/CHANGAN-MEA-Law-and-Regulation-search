@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>中东非市场产品及服务法规要求</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>中东非市场产品及服务法规要求</h1>
+            <p class="subtitle">快速查询中东非各国产品合规、保修售后、数据隐私等法规要求，助力企业国际化合规经营</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- 管理员面板 -->
+        <div class="admin-panel">
+            <button class="admin-toggle" onclick="toggleAdminPanel()">数据管理</button>
+            <button class="export-btn" onclick="exportData()">导出数据</button>
+            <button class="export-btn" onclick="importData()">导入数据</button>
+            <input type="file" id="importFile" style="display: none;" accept=".json" onchange="handleFileImport(this.files)">
+            
+            <div class="edit-form" id="editForm" style="display: none;">
+                <!-- 编辑表单内容保持不变 -->
+            </div>
+        </div>
+
+        <div class="search-container">
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="搜索法规要求、标准或关键词...">
+            </div>
+            <div class="filter-container">
+                <select class="filter-select" id="countryFilter">
+                    <option value="">所有国家</option>
+                </select>
+                <select class="filter-select" id="categoryFilter">
+                    <option value="">所有类别</option>
+                    <option value="产品合规要求">产品合规要求</option>
+                    <option value="保修与售后服务">保修与售后服务</option>
+                    <option value="信息披露与数据隐私">信息披露与数据隐私</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="country-sidebar">
+                <h3 style="margin-bottom: 15px; color: var(--primary-color);">选择国家</h3>
+                <ul class="country-list" id="countryList"></ul>
+            </div>
+
+            <div class="content-area" id="contentArea">
+                <div class="no-results" id="noResults" style="display: none;">
+                    <p>没有找到匹配的法规要求</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>中东非市场法规要求查询系统 © 2023</p>
+            <p>数据来源：中东非市场各个国家产品及服务法规要求要点.xlsx | 
+                <a href="javascript:void(0)" onclick="toggleAdminPanel()">数据管理</a> | 
+                <a href="javascript:void(0)" onclick="exportData()">导出数据</a> |
+                <a href="javascript:void(0)" onclick="importData()">导入数据</a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- 引入外部JavaScript文件 -->
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
